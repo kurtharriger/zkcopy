@@ -93,5 +93,13 @@
         </plugins>
 
     </build>
+    <distributionManagement>
+     <repository>
+       <id>Nexus</id>
+       <name>Nexus</name>
+       <url>http://alm-build:8080/nexus/content/repositories/releases</url>
+     </repository>
+  </distributionManagement>
+
 
 </project>

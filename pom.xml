@@ -4,7 +4,7 @@
     <groupId>com.sysiq.tools</groupId>
     <artifactId>zkcopy</artifactId>
     <packaging>jar</packaging>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <name>zkcopy</name>
     <url>https://code.google.com/p/zkcopy/</url>
     <dependencies>

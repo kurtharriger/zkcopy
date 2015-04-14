@@ -37,32 +37,14 @@ public class Writer implements Watcher
         path = addr.substring(p);
     }
     
-    public void write() {
-        try
-        {
-            zk = new ZooKeeper(server, 3000, this);
-            checkCreatePath(path);
-            Node dest = sourceRoot;
-            dest.setPath(path);
-            logger.info("Writing data...");
-            update(dest);
-            logger.info("Writing data completed.");
-        }
-        catch(IOException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        catch(KeeperException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        catch(InterruptedException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public void write() throws Exception {
+        zk = new ZooKeeper(server, 10000, this);
+        checkCreatePath(path);
+        Node dest = sourceRoot;
+        dest.setPath(path);
+        logger.info("Writing data...");
+        update(dest);
+        logger.info("Writing data completed.");
     }
     
     public void checkCreatePath(String path) throws KeeperException, InterruptedException {

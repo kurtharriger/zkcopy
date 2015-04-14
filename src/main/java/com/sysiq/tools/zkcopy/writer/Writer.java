@@ -38,8 +38,14 @@ public class Writer implements Watcher
     }
     
     public void write() throws Exception {
-        zk = new ZooKeeper(server, 10000, this);
+        zk = new ZooKeeper(server, 3000, this);
+        while (zk.getState() != ZooKeeper.States.CONNECTED){
+            logger.info("ZooKeeper state is: " + zk.getState().toString());
+            Thread.sleep(250);
+        }
+        logger.info("ZooKeeper state is: " + zk.getState().toString());
         checkCreatePath(path);
+
         Node dest = sourceRoot;
         dest.setPath(path);
         logger.info("Writing data...");
